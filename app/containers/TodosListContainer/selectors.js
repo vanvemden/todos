@@ -12,8 +12,14 @@ const selectTodosListContainerDomain = state =>
  * Other specific selectors
  */
 
+const makeSelectTodos = () =>
+  createSelector(
+    selectTodosListContainerDomain,
+    substate => substate.todos,
+  );
+
 /**
- * Default selector used by TodosListContainer
+ * Default selector
  */
 
 const makeSelectTodosListContainer = () =>
@@ -23,4 +29,4 @@ const makeSelectTodosListContainer = () =>
   );
 
 export default makeSelectTodosListContainer;
-export { selectTodosListContainerDomain };
+export { makeSelectTodos, selectTodosListContainerDomain };
