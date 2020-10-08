@@ -4,15 +4,18 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import { REQUEST_TODOS_SUCCEEDED } from './constants';
 
-export const initialState = {};
+export const initialState = {
+  todos: [],
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const todosListContainerReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case REQUEST_TODOS_SUCCEEDED:
+        draft.todos = action.todos;
         break;
     }
   });
