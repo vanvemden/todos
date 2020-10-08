@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -14,37 +14,52 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectTodosListContainer from './selectors';
+import { makeSelectTodos } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { requestTodos } from './actions';
 
-export function TodosListContainer() {
+import TodoList from '../../components/TodoList';
+
+export function TodosListContainer({ todos, onRequestTodos }) {
   useInjectReducer({ key: 'todosListContainer', reducer });
   useInjectSaga({ key: 'todosListContainer', saga });
+
+  useEffect(() => {
+    // On mount, execute request todos action
+    onRequestTodos();
+  }, []);
+
+  const todoListProps = {
+    todos,
+  };
 
   return (
     <div>
       <Helmet>
-        <title>TodosListContainer</title>
-        <meta name="description" content="Description of TodosListContainer" />
+        <title>To-do List</title>
+        <meta name="description" content="The list with to-do items." />
       </Helmet>
       <FormattedMessage {...messages.header} />
+      <TodoList {...todoListProps} />
     </div>
   );
 }
 
+// Typechecking the props passed to the component
 TodosListContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+  onRequestTodos: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  todosListContainer: makeSelectTodosListContainer(),
+  todos: makeSelectTodos(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    onRequestTodos: () => dispatch(requestTodos()),
   };
 }
 
