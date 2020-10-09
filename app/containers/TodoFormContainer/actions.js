@@ -4,10 +4,35 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import {
+  SUBMIT_TODO,
+  SUBMIT_TODO_SUCCEEDED,
+  SUBMIT_TODO_FAILED,
+  SUBMIT_TODO_CANCELLED
+} from './constants';
 
-export function defaultAction() {
+export function submitTodo() {
   return {
-    type: DEFAULT_ACTION,
+    type: SUBMIT_TODO,
+  };
+}
+
+export function submitTodoSucceeded(todo) {
+  return {
+    type: SUBMIT_TODO_SUCCEEDED,
+    todo,
+  };
+}
+
+export function submitTodoFailed(message) {
+  return {
+    type: SUBMIT_TODO_FAILED,
+    message,
+  };
+}
+
+export function submitTodoCancelled(message) {
+  return {
+    type: SUBMIT_TODO_CANCELLED,
   };
 }
