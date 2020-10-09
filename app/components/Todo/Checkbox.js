@@ -1,3 +1,4 @@
+// Source: https://codesandbox.io/s/yvp79r4251?file=/src/Checkbox.js:1250-1254
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -5,6 +6,7 @@ import styled from 'styled-components';
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
+  line-height: 1.15;
 `;
 
 const Icon = styled.svg`
@@ -34,6 +36,7 @@ const StyledCheckbox = styled.div`
   height: 16px;
   border-radius: 3px;
   background: ${props => (props.checked ? 'salmon' : 'papayawhip')};
+  color: ${props => (props.checked ? 'salmon' : 'papayawhip')};
   transition: all 150ms;
 
   ${HiddenCheckbox}:focus + & {

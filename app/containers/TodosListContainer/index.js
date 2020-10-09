@@ -18,11 +18,11 @@ import { makeSelectTodos } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import { requestTodos } from './actions';
+import { requestTodos, toggleTodo } from './actions';
 
 import TodoList from '../../components/TodoList';
 
-export function TodosListContainer({ todos, onRequestTodos }) {
+export function TodosListContainer({ todos, onRequestTodos, onToggleTodo }) {
   useInjectReducer({ key: 'todosListContainer', reducer });
   useInjectSaga({ key: 'todosListContainer', saga });
 
@@ -33,6 +33,7 @@ export function TodosListContainer({ todos, onRequestTodos }) {
 
   const todoListProps = {
     todos,
+    onToggleTodo,
   };
 
   return (
@@ -51,6 +52,7 @@ export function TodosListContainer({ todos, onRequestTodos }) {
 TodosListContainer.propTypes = {
   todos: PropTypes.array.isRequired,
   onRequestTodos: PropTypes.func.isRequired,
+  onToggleTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -60,6 +62,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     onRequestTodos: () => dispatch(requestTodos()),
+    onToggleTodo: id => dispatch(toggleTodo(id)),
   };
 }
 

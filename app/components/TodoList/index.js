@@ -11,8 +11,10 @@ import Todo from '../Todo';
 import Wrapper from './Wrapper';
 import Ul from './Ul';
 
-function TodoList({ todos }) {
-  const todoNodes = todos.map(todo => <Todo key={todo.id} todo={todo} />);
+function TodoList({ todos, onToggleTodo }) {
+  const todoNodes = todos.map(todo => (
+    <Todo key={todo.id} todo={todo} onToggle={onToggleTodo} />
+  ));
 
   return (
     <Wrapper>
@@ -23,6 +25,7 @@ function TodoList({ todos }) {
 
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
+  onToggleTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

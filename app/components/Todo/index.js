@@ -11,16 +11,13 @@ import Label from './Label';
 import Checkbox from './Checkbox';
 // import styled from 'styled-components';
 
-function Todo({ todo }) {
-  const onCheckboxChange = (id) => {
-    console.log('checkbox changed', id);
-  };
+function Todo({ todo, onToggle }) {
 
   return (
     <Wrapper>
       <Checkbox
         checked={todo.checked}
-        onChange={() => onCheckboxChange(todo.id)}
+        onChange={() => onToggle(todo.id)}
         id={todo.id}
       />
       <Label>{todo.text}</Label>
@@ -30,6 +27,7 @@ function Todo({ todo }) {
 
 Todo.propTypes = {
   todo: PropTypes.object.isRequired,
+  onToggle: PropTypes.func.isRequired,
 };
 
 export default Todo;
