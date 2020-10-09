@@ -7,15 +7,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
-import TodoText from './TodoText';
-import TodoStatus from './TodoStatus';
+import Label from './Label';
+import Checkbox from './Checkbox';
 // import styled from 'styled-components';
 
 function Todo({ todo }) {
+  const onCheckboxChange = (id) => {
+    console.log('checkbox changed', id);
+  };
+
   return (
     <Wrapper>
-      <TodoText>{todo.text}</TodoText>
-      <TodoStatus>{todo.done}</TodoStatus>
+      <Checkbox
+        checked={todo.checked}
+        onChange={() => onCheckboxChange(todo.id)}
+        id={todo.id}
+      />
+      <Label>{todo.text}</Label>
     </Wrapper>
   );
 }
