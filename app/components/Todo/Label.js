@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const TodoText = styled.div`
+const Label = styled.div`
   color: green;
 `;
 
-export default TodoText;
+export default Label;
