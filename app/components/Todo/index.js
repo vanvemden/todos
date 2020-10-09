@@ -16,11 +16,11 @@ function Todo({ todo, onToggle }) {
   return (
     <Wrapper>
       <Checkbox
+        id={todo.id}
         checked={todo.checked}
         onChange={() => onToggle(todo.id)}
-        id={todo.id}
       />
-      <Label>{todo.text}</Label>
+      <Label checked={todo.checked}>{todo.text}</Label>
     </Wrapper>
   );
 }
