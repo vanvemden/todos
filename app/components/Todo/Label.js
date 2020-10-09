@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Label = styled.div`
-  color: green;
+  text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
 `;
 
 export default Label;
