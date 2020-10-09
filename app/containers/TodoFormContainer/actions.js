@@ -8,7 +8,7 @@ import {
   SUBMIT_TODO,
   SUBMIT_TODO_SUCCEEDED,
   SUBMIT_TODO_FAILED,
-  SUBMIT_TODO_CANCELLED
+  SUBMIT_TODO_CANCELLED,
 } from './constants';
 
 export function submitTodo() {
@@ -31,7 +31,7 @@ export function submitTodoFailed(message) {
   };
 }
 
-export function submitTodoCancelled(message) {
+export function submitTodoCancelled() {
   return {
     type: SUBMIT_TODO_CANCELLED,
   };
