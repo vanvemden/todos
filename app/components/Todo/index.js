@@ -12,7 +12,6 @@ import Checkbox from './Checkbox';
 // import styled from 'styled-components';
 
 function Todo({ todo, onToggle }) {
-
   return (
     <Wrapper>
       <Checkbox
