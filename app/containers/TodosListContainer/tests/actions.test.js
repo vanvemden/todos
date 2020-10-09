@@ -1,13 +1,56 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import {
+  requestTodos,
+  requestTodosSucceeded,
+  requestTodosFailed,
+  toggleTodo,
+} from '../actions';
+import {
+  REQUEST_TODOS,
+  REQUEST_TODOS_SUCCEEDED,
+  REQUEST_TODOS_FAILED,
+  TOGGLE_TODO,
+} from '../constants';
 
 describe('TodosListContainer actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('requestTodos', () => {
+    it('has a type of REQUEST_TODOS', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: REQUEST_TODOS,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(requestTodos()).toEqual(expected);
+    });
+  });
+
+  describe('requestTodosSucceeded', () => {
+    it('has a type of REQUEST_TODOS_SUCCEEDED', () => {
+      const payload = [];
+      const expected = {
+        type: REQUEST_TODOS_SUCCEEDED,
+        todos: payload,
+      };
+      expect(requestTodosSucceeded(payload)).toEqual(expected);
+    });
+  });
+
+  describe('requestTodosFailed', () => {
+    it('has a type of REQUEST_TODOS_FAILED', () => {
+      const payload = 'Error message';
+      const expected = {
+        type: REQUEST_TODOS_FAILED,
+        message: payload,
+      };
+      expect(requestTodosFailed(payload)).toEqual(expected);
+    });
+  });
+
+  describe('toggleTodo', () => {
+    it('has a type of TOGGLE_TODO', () => {
+      const payload = 1;
+      const expected = {
+        type: TOGGLE_TODO,
+        id: payload,
+      };
+      expect(toggleTodo(payload)).toEqual(expected);
     });
   });
 });
