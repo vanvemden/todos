@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const CheckboxContainer = styled.div`
   display: inline-block;
   vertical-align: middle;
-  line-height: 1.15;
 `;
 
 const Icon = styled.svg`
