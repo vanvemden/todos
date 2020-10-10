@@ -13,12 +13,13 @@ const StyledButton = styled.button`
   ${buttonStyles};
 `;
 
-function Button({ label, onClick }) {
-  return <StyledButton onClick={onClick}>{label}</StyledButton>;
+function Button({ label, bgColor, onClick }) {
+  return <StyledButton bgColor={bgColor} onClick={onClick}>{label}</StyledButton>;
 }
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
+  bgColor: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
