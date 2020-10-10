@@ -4,15 +4,18 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import { TODO_TEXT_CHANGE } from './constants';
 
-export const initialState = {};
+export const initialState = {
+  text: '',
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const todoFormContainerReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case TODO_TEXT_CHANGE:
+        draft.text = action.text;
         break;
     }
   });

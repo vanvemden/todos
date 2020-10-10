@@ -4,6 +4,8 @@
  *
  */
 
+export const TODO_TEXT_CHANGE = 'app/TodoFormContainer/TODO_TEXT_CHANGE';
+
 export const SUBMIT_TODO = 'app/TodoFormContainer/SUBMIT_TODO';
 export const SUBMIT_TODO_FAILED = 'app/TodoFormContainer/SUBMIT_TODO_FAILED';
 export const SUBMIT_TODO_SUCCEEDED =

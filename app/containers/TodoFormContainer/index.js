@@ -14,37 +14,58 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectTodoFormContainer from './selectors';
+import { makeSelectTodoText } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import TodoForm from '../../components/TodoForm';
+import { changeTextInput, submitTodo, submitTodoCancelled } from './actions';
 
-export function TodoFormContainer() {
+export function TodoFormContainer({
+  todoText,
+  onTodoTextChange,
+  onTodoFormSubmit,
+  onTodoFormCancel,
+}) {
   useInjectReducer({ key: 'todoFormContainer', reducer });
   useInjectSaga({ key: 'todoFormContainer', saga });
+
+  // Props to pass to component
+  const todoFormProps = {
+    todoText,
+    onTodoTextChange,
+    onTodoFormSubmit,
+    onTodoFormCancel,
+  };
 
   return (
     <div>
       <Helmet>
-        <title>TodoFormContainer</title>
-        <meta name="description" content="Description of TodoFormContainer" />
+        <title>Add Todo</title>
+        <meta name="description" content="Add a todo item to list." />
       </Helmet>
       <FormattedMessage {...messages.header} />
+      <TodoForm {...todoFormProps} />
     </div>
   );
 }
 
 TodoFormContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  todoText: PropTypes.string.isRequired,
+  onTodoTextChange: PropTypes.func.isRequired,
+  onTodoFormSubmit: PropTypes.func.isRequired,
+  onTodoFormCancel: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  todoFormContainer: makeSelectTodoFormContainer(),
+  todoText: makeSelectTodoText(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    onTodoTextChange: evt => dispatch(changeTextInput(evt.target.value)),
+    onTodoFormSubmit: todo => dispatch(submitTodo(todo)),
+    onTodoFormCancel: () => dispatch(submitTodoCancelled()),
   };
 }
 

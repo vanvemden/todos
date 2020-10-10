@@ -12,6 +12,12 @@ const selectTodoFormContainerDomain = state =>
  * Other specific selectors
  */
 
+const makeSelectTodoText = () =>
+  createSelector(
+    selectTodoFormContainerDomain,
+    substate => substate.text,
+  )
+
 /**
  * Default selector used by TodoFormContainer
  */
@@ -23,4 +29,4 @@ const makeSelectTodoFormContainer = () =>
   );
 
 export default makeSelectTodoFormContainer;
-export { selectTodoFormContainerDomain };
+export { selectTodoFormContainerDomain, makeSelectTodoText };
