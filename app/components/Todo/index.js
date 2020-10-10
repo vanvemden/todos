@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import Label from './Label';
-import Checkbox from './Checkbox';
+import Checkbox from '../Checkbox';
 // import styled from 'styled-components';
 
 function Todo({ todo, onToggle }) {
