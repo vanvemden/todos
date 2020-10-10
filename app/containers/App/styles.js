@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
-const Wrapper = styled.div`
+const appStyles = css`
   max-width: calc(768px + 16px * 2);
   margin: 0 auto;
   display: flex;
@@ -9,4 +9,4 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export default Wrapper;
+export default appStyles;

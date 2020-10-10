@@ -9,24 +9,28 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 import TodosListContainer from 'containers/TodosListContainer/Loadable';
 import TodoFormContainer from 'containers/TodoFormContainer/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
+import appStyles from './styles';
 
-import Wrapper from './Wrapper';
+const StyledWrapper = styled.div`
+  ${appStyles};
+`;
 
 export default function App() {
   return (
-    <Wrapper>
+    <StyledWrapper>
       <Switch>
         <Route exact path="/" component={TodosListContainer} />
         <Route exact path="/todos/add" component={TodoFormContainer} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </Wrapper>
+    </StyledWrapper>
   );
 }
