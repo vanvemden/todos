@@ -7,12 +7,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import buttonStyles from './styles';
 
 const StyledButton = styled.button`
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
+  ${buttonStyles};
 `;
 
 function Button({ label, onClick }) {
