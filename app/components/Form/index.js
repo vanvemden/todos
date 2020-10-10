@@ -13,8 +13,8 @@ const StyledForm = styled.form`
   ${formStyles};
 `;
 
-function Form(props, { onSubmit }) {
-  return <StyledForm onSubmit={onSubmit}>{props.children}</StyledForm>;
+function Form({ onSubmit, children }) {
+  return <StyledForm onSubmit={onSubmit}>{children}</StyledForm>;
 }
 
 Form.propTypes = {
