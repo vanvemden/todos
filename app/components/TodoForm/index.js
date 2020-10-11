@@ -28,10 +28,9 @@ function TodoForm({
 
   return (
     <div>
-      <FormattedMessage {...messages.header} />
       <Form onSubmit={handleFormSubmit}>
         <TextInput
-          placeholder="What needs to be done..."
+          placeholder="Short description of what needs to be done..."
           onChange={onTodoTextChange}
           value={todoText}
           type="text"

@@ -11,6 +11,6 @@ export const scope = 'app.components.TodoForm';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the TodoForm component!',
+    defaultMessage: 'Form',
   },
 });

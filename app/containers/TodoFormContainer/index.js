@@ -44,7 +44,9 @@ export function TodoFormContainer({
         <title>Add Todo</title>
         <meta name="description" content="Add a todo item to list." />
       </Helmet>
-      <FormattedMessage {...messages.header} />
+      <h1>
+        <FormattedMessage {...messages.header} />
+      </h1>
       <TodoForm {...todoFormProps} />
     </div>
   );
