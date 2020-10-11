@@ -5,6 +5,7 @@
  */
 import produce from 'immer';
 import { REQUEST_TODOS_SUCCEEDED, TOGGLE_TODO } from './constants';
+import { SUBMIT_TODO_SUCCEEDED } from '../TodoFormContainer/constants';
 
 export const initialState = {
   todos: [],
@@ -20,6 +21,13 @@ function toggleTodoCheckedState(todos, id) {
   return tempTodos;
 }
 
+/* Helper function to add todo to state array */
+function addTodoToState(todos, todo) {
+  const tempTodos = todos;
+  tempTodos.push(todo);
+  return tempTodos;
+}
+
 /* eslint-disable default-case, no-param-reassign */
 const todosListContainerReducer = (state = initialState, action) =>
   produce(state, draft => {
@@ -29,6 +37,9 @@ const todosListContainerReducer = (state = initialState, action) =>
         break;
       case TOGGLE_TODO:
         draft.todos = toggleTodoCheckedState(draft.todos, action.id);
+        break;
+      case SUBMIT_TODO_SUCCEEDED:
+        draft.todos = addTodoToState(draft.todos, action.todo);
         break;
     }
   });
