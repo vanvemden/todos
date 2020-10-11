@@ -1,10 +1,13 @@
 import { css } from 'styled-components';
 
 const navLinkStyles = css`
-  font-size: 1em;
-  margin: 1em;
+  display: inline-flex;
+  line-height: 2em;
+  font-size: 1.5em;
+  margin: 0.75em;
   padding: 0.25em 1em;
-  border-radius: 3px;
+  border: 2px dashed lightpink;
+  border-radius: 35%;
   cursor: pointer;
   background-color: yellow;
 `;
