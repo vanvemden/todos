@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { REQUEST_TODOS_SUCCEEDED, TOGGLE_TODO } from './constants';
+import { REQUEST_TODOS_SUCCEEDED, TOGGLE_TODO_SUCCEEDED } from './constants';
 import { SUBMIT_TODO_SUCCEEDED } from '../TodoFormContainer/constants';
 
 export const initialState = {
@@ -12,9 +12,9 @@ export const initialState = {
 };
 
 /* Helper function to toggle checked boolean */
-function toggleTodoCheckedState(todos, id) {
+function toggleTodoCheckedState(todos, todo) {
   const tempTodos = todos;
-  const idx = tempTodos.findIndex(todo => todo.id === id);
+  const idx = tempTodos.findIndex(t => t.id === todo.id);
   if (idx >= 0) {
     tempTodos[idx].checked = !tempTodos[idx].checked;
   }
@@ -24,7 +24,7 @@ function toggleTodoCheckedState(todos, id) {
 /* Helper function to add todo to state array */
 function addTodoToState(todos, todo) {
   const tempTodos = todos;
-  tempTodos.push(todo);
+  tempTodos.unshift(todo);
   return tempTodos;
 }
 
@@ -35,8 +35,8 @@ const todosListContainerReducer = (state = initialState, action) =>
       case REQUEST_TODOS_SUCCEEDED:
         draft.todos = action.todos;
         break;
-      case TOGGLE_TODO:
-        draft.todos = toggleTodoCheckedState(draft.todos, action.id);
+      case TOGGLE_TODO_SUCCEEDED:
+        draft.todos = toggleTodoCheckedState(draft.todos, action.todo);
         break;
       case SUBMIT_TODO_SUCCEEDED:
         draft.todos = addTodoToState(draft.todos, action.todo);

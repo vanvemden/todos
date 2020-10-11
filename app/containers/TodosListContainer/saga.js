@@ -22,7 +22,7 @@ function* requestTodos() {
 function* toggleTodoChecked(action) {
   try {
     const result = yield call(apiToggleChecked, action.id);
-    yield put(toggleTodoSucceeded(result.id));
+    yield put(toggleTodoSucceeded(result.todo));
   } catch (err) {
     yield put(toggleTodoFailed(err.message));
   }
