@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import TodosListContainer from 'containers/TodosListContainer/Loadable';
@@ -29,8 +29,11 @@ export default function App() {
     <StyledWrapper>
       <NavBar/>
       <Switch>
-        <Route exact path="/" component={TodosListContainer} />
+        <Route exact path="/todos" component={TodosListContainer} />
         <Route exact path="/todos/add" component={TodoFormContainer} />
+        <Route exact path="/">
+          <Redirect to="/todos" />
+        </Route>
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
