@@ -1,3 +1,9 @@
+export function getTodosApi() {
+  return fetch(`http://localhost:3000/api/todos/`).then(response =>
+    response.json(),
+  );
+}
+
 export function postTodoApi({ todo }) {
   return fetch(`http://localhost:3000/api/todos/`, {
     method: 'POST',
