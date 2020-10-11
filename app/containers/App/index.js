@@ -18,6 +18,8 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
 import appStyles from './styles';
 
+import NavBar from '../../components/NavBar';
+
 const StyledWrapper = styled.div`
   ${appStyles};
 `;
@@ -25,6 +27,7 @@ const StyledWrapper = styled.div`
 export default function App() {
   return (
     <StyledWrapper>
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={TodosListContainer} />
         <Route exact path="/todos/add" component={TodoFormContainer} />
