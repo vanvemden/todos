@@ -7,8 +7,8 @@ import { apiCreateTodo } from '../../api';
 /* Send api request to post todo */
 function* submitTodo(action) {
   try {
-    const todo = yield call(apiCreateTodo, action.todo);
-    yield put(submitTodoSucceeded(todo));
+    const result = yield call(apiCreateTodo, action.todo);
+    yield put(submitTodoSucceeded(result.todo));
   } catch (error) {
     yield put(submitTodoFailed(error.message));
   }
