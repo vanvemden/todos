@@ -6,21 +6,27 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Wrapper from './Wrapper';
-import Label from './Label';
+import styled from 'styled-components';
 import Checkbox from '../Checkbox';
-// import styled from 'styled-components';
+import { liStyles, labelStyles } from './styles';
 
+const StyledLi = styled.li`
+  ${liStyles};
+`;
+
+const StyledLabel = styled.div`
+  ${labelStyles};
+`;
 function Todo({ todo, onToggle }) {
   return (
-    <Wrapper>
+    <StyledLi>
       <Checkbox
         id={todo.id}
         checked={todo.checked}
         onChange={() => onToggle(todo.id)}
       />
-      <Label checked={todo.checked}>{todo.text}</Label>
-    </Wrapper>
+      <StyledLabel checked={todo.checked}>{todo.text}</StyledLabel>
+    </StyledLi>
   );
 }
 
