@@ -13,12 +13,12 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Navigation!',
   },
-  navTodoList: {
-    id: `${scope}.nav_todo_list`,
-    defaultMessage: 'to-do list',
-  },
   navAddTodo: {
     id: `${scope}.nav_add_todo`,
-    defaultMessage: 'add to-do',
+    defaultMessage: 'add to',
+  },
+  navTodoList: {
+    id: `${scope}.nav_todo_list`,
+    defaultMessage: 'todos',
   },
 });

@@ -18,8 +18,8 @@ const StyledNavBar = styled.div`
 function NavBar() {
   return (
     <StyledNavBar>
-      <NavLink to="/" message={messages.navTodoList} />
       <NavLink to="/todos/add" message={messages.navAddTodo} />
+      <NavLink to="/todos" message={messages.navTodoList} />
     </StyledNavBar>
   );
 }
