@@ -15,10 +15,10 @@ export default defineMessages({
   },
   navTodoList: {
     id: `${scope}.nav_todo_list`,
-    defaultMessage: 'To do\'s',
+    defaultMessage: 'to-do list',
   },
   navAddTodo: {
     id: `${scope}.nav_add_todo`,
-    defaultMessage: 'Add Todo',
+    defaultMessage: 'add to-do',
   },
 });
