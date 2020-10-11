@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    background-color: papayawhip;
+    background-color: #ece9e0;
     min-height: 100%;
     min-width: 100%;
   }

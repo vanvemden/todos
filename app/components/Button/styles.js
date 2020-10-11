@@ -1,12 +1,16 @@
 import { css } from 'styled-components';
 
 const buttonStyles = css`
-  font-size: 1em;
-  margin: 1em;
+  color: #000000;
+  display: inline-flex;
+  line-height: 1em;
+  font-size: 1.25em;
+  margin: 0.75em 0.75em 0 0;
   padding: 0.25em 1em;
-  border-radius: 3px;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: ${props => props.bgColor};
   cursor: pointer;
-  background-color: ${props => props.bgColor};
 `;
 
 export default buttonStyles;

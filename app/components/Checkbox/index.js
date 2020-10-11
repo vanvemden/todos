@@ -27,7 +27,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 const StyledCheckbox = styled.div`
   ${styledCheckboxStyles}
   ${HiddenCheckbox}:focus + & {
-    box-shadow: 0 0 0 30px ${props => (props.checked ? 'pink' : 'LightGreen')};
+    box-shadow: 0 0 0 4px ${props => (props.checked ? 'pink' : 'LightGreen')};
   }
 
   ${Icon} {

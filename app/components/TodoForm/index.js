@@ -36,8 +36,8 @@ function TodoForm({
           type="text"
           id="text"
         />
-        <Button bgColor="red" label="Add" onClick={handleFormSubmit} />
-        <Button bgColor="green" label="Cancel" onClick={onTodoFormCancel} />
+        <Button bgColor="green" label="Add" onClick={handleFormSubmit} />
+        <Button bgColor="red" label="Cancel" onClick={onTodoFormCancel} />
       </Form>
     </div>
   );

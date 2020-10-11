@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
 
 const formStyles = css`
-  background-color: #ffffff;
   padding: 10px;
   padding: 25px;
-  border-radius: 2px;
+  border: 2px dashed #ffffff;
 `;
 
 export default formStyles;
