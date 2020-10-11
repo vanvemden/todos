@@ -9,6 +9,8 @@ import {
   REQUEST_TODOS_SUCCEEDED,
   REQUEST_TODOS_FAILED,
   TOGGLE_TODO,
+  TOGGLE_TODO_SUCCEEDED,
+  TOGGLE_TODO_FAILED,
 } from './constants';
 
 export function requestTodos() {
@@ -35,5 +37,19 @@ export function toggleTodo(id) {
   return {
     type: TOGGLE_TODO,
     id,
+  };
+}
+
+export function toggleTodoSucceeded(id) {
+  return {
+    type: TOGGLE_TODO_SUCCEEDED,
+    id,
+  };
+}
+
+export function toggleTodoFailed(message) {
+  return {
+    type: TOGGLE_TODO_FAILED,
+    message,
   };
 }
