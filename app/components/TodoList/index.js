@@ -6,10 +6,17 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import Todo from '../Todo';
-import Wrapper from './Wrapper';
-import Ul from './Ul';
+import { wrapperStyles, ulStyles } from './styles';
+
+const StyledWrapper = styled.div`
+  ${wrapperStyles};
+`;
+
+const StyledUl = styled.ul`
+  ${ulStyles};
+`;
 
 function TodoList({ todos, onToggleTodo }) {
   const todoNodes = todos.map(todo => (
@@ -17,9 +24,9 @@ function TodoList({ todos, onToggleTodo }) {
   ));
 
   return (
-    <Wrapper>
-      <Ul>{todoNodes}</Ul>
-    </Wrapper>
+    <StyledWrapper>
+      <StyledUl>{todoNodes}</StyledUl>
+    </StyledWrapper>
   );
 }
 
