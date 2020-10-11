@@ -2,17 +2,18 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 import { submitTodoSucceeded, submitTodoFailed } from './actions';
 import { SUBMIT_TODO } from './constants';
-import { postTodoApi } from '../../api';
+import { apiCreateTodo } from '../../api';
 
+/* Send api request to post todo */
 function* submitTodo(action) {
   try {
-    const todo = yield call(postTodoApi, action);
+    const todo = yield call(apiCreateTodo, action.todo);
     yield put(submitTodoSucceeded(todo));
   } catch (error) {
     yield put(submitTodoFailed(error.message));
   }
 }
-// Individual exports for testing
-export default function* submitTodoSaga() {
+
+export default function* todoFormContainerSaga() {
   yield takeLatest(SUBMIT_TODO, submitTodo);
 }
