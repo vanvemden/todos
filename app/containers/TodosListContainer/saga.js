@@ -1,17 +1,12 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
 import { REQUEST_TODOS } from './constants';
 import { requestTodosSucceeded, requestTodosFailed } from './actions';
-
-const todos = [
-  { id: '1', text: 'Hello World!', checked: false },
-  { id: '2', text: 'Hello World 1!', checked: true },
-  { id: '3', text: 'Hello World 2!', checked: false },
-  { id: '4', text: 'Hello World 3!', checked: true },
-];
+import { getTodosApi } from '../../api';
 
 function* requestTodos() {
   try {
-    yield put(requestTodosSucceeded(todos));
+    const result = yield call(getTodosApi);
+    yield put(requestTodosSucceeded(result.todos));
   } catch (err) {
     yield put(requestTodosFailed(err.message));
   }

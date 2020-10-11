@@ -42,7 +42,9 @@ export function TodosListContainer({ todos, onRequestTodos, onToggleTodo }) {
         <title>To-do List</title>
         <meta name="description" content="The list with to-do items." />
       </Helmet>
-      <FormattedMessage {...messages.header} />
+      <h1>
+        <FormattedMessage {...messages.header} />
+      </h1>
       <TodoList {...todoListProps} />
     </div>
   );
