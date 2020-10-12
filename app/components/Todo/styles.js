@@ -5,8 +5,10 @@ export const liStyles = css`
   display: flex;
   align-items: center;
   margin: 1em 0;
-  padding: 0.5em 1em;
-  border: 2px dashed #fff;
+  padding: 1em;
+  border-radius: 0.25rem;
+  border: 1px dashed #b4b4b2;
+  background-color: #b3d4fc;
 `;
 
 export const labelStyles = css`

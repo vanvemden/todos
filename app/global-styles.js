@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
     width: 100%;
+    color: #424147;
   }
 
   body {

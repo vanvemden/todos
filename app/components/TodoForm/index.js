@@ -30,14 +30,14 @@ function TodoForm({
     <div>
       <Form onSubmit={handleFormSubmit}>
         <TextInput
-          placeholder="Short description of what needs to be done..."
+          placeholder="Describe what needs to be done..."
           onChange={onTodoTextChange}
           value={todoText}
           type="text"
           id="text"
         />
-        <Button bgColor="green" label="Add" onClick={handleFormSubmit} />
-        <Button bgColor="red" label="Cancel" onClick={onTodoFormCancel} />
+        <Button bgColor="green" label="submit" onClick={handleFormSubmit} />
+        <Button bgColor="red" label="cancel" onClick={onTodoFormCancel} />
       </Form>
     </div>
   );
