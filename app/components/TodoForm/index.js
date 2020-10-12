@@ -12,15 +12,13 @@ import TextInput from '../TextInput';
 import Button from '../Button';
 import Form from '../Form';
 
-function TodoForm({
-  todoText,
-  onTodoTextChange,
-  onTodoFormSubmit,
-  onTodoFormCancel,
-}) {
+function TodoForm({ todoText, onTodoTextChange, onTodoFormSubmit }) {
   const [todoTextError, setTodoTextError] = useState('');
+
   const handleFormSubmit = evt => {
     evt.preventDefault();
+
+    /* Validate todo text input */
     if (todoText.length === 0) {
       setTodoTextError('Please enter a description.');
     } else {
@@ -42,8 +40,16 @@ function TodoForm({
           type="text"
           id="text"
         />
-        <Button bgColor="green" message={messages.buttonSubmit} onClick={handleFormSubmit} />
-        <Button bgColor="red" message={messages.buttonCancel} onClick={() => {history.push('/todos')}} />
+        <Button
+          bgColor="green"
+          message={messages.buttonSubmit}
+          onClick={handleFormSubmit}
+        />
+        <Button
+          bgColor="red"
+          message={messages.buttonCancel}
+          onClick={() => {history.push('/todos')}}
+        />
       </Form>
     </div>
   );
@@ -53,7 +59,6 @@ TodoForm.propTypes = {
   todoText: PropTypes.string.isRequired,
   onTodoTextChange: PropTypes.func.isRequired,
   onTodoFormSubmit: PropTypes.func.isRequired,
-  onTodoFormCancel: PropTypes.func.isRequired,
 };
 
 export default TodoForm;

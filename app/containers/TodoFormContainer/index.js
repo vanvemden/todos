@@ -19,13 +19,12 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import TodoForm from '../../components/TodoForm';
-import { changeTextInput, submitTodo, submitTodoCancelled } from './actions';
+import { changeTextInput, submitTodo } from './actions';
 
 export function TodoFormContainer({
   todoText,
   onTodoTextChange,
   onTodoFormSubmit,
-  onTodoFormCancel,
 }) {
   useInjectReducer({ key: 'todoFormContainer', reducer });
   useInjectSaga({ key: 'todoFormContainer', saga });
@@ -35,7 +34,6 @@ export function TodoFormContainer({
     todoText,
     onTodoTextChange,
     onTodoFormSubmit,
-    onTodoFormCancel,
   };
 
   return (
@@ -56,7 +54,6 @@ TodoFormContainer.propTypes = {
   todoText: PropTypes.string.isRequired,
   onTodoTextChange: PropTypes.func.isRequired,
   onTodoFormSubmit: PropTypes.func.isRequired,
-  onTodoFormCancel: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -67,7 +64,6 @@ function mapDispatchToProps(dispatch) {
   return {
     onTodoTextChange: evt => dispatch(changeTextInput(evt.target.value)),
     onTodoFormSubmit: todo => dispatch(submitTodo(todo)),
-    onTodoFormCancel: () => dispatch(submitTodoCancelled()),
   };
 }
 
