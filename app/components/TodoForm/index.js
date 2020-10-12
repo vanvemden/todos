@@ -6,7 +6,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
 import TextInput from '../TextInput';
@@ -36,8 +35,8 @@ function TodoForm({
           type="text"
           id="text"
         />
-        <Button bgColor="green" label="submit" onClick={handleFormSubmit} />
-        <Button bgColor="red" label="cancel" onClick={onTodoFormCancel} />
+        <Button bgColor="green" message={messages.buttonSubmit} onClick={handleFormSubmit} />
+        <Button bgColor="red" message={messages.buttonCancel} onClick={onTodoFormCancel} />
       </Form>
     </div>
   );

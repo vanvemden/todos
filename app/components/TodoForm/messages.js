@@ -9,8 +9,12 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.components.TodoForm';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'Form',
+  buttonSubmit: {
+    id: `${scope}.button_submit`,
+    defaultMessage: 'submit',
+  },
+  buttonCancel: {
+    id: `${scope}.button_cancel`,
+    defaultMessage: 'cancel',
   },
 });
