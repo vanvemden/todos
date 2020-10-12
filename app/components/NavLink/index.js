@@ -15,10 +15,10 @@ const StyledNavLink = styled(Link)`
   ${navLinkStyles};
 `;
 
-function NavLink({ message, to }) {
+function NavLink({ to, message, messageValues }) {
   return (
     <StyledNavLink to={to}>
-      <FormattedMessage {...message} />
+      <FormattedMessage {...message} values={messageValues} />
     </StyledNavLink>
   );
 }
@@ -26,6 +26,7 @@ function NavLink({ message, to }) {
 NavLink.propTypes = {
   to: PropTypes.string.isRequired,
   message: PropTypes.object.isRequired,
+  messageValues: PropTypes.object,
 };
 
 export default NavLink;

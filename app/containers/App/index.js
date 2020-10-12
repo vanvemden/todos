@@ -9,7 +9,11 @@
 
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { createStructuredSelector } from 'reselect';
 
 import TodosListContainer from 'containers/TodosListContainer/Loadable';
 import TodoFormContainer from 'containers/TodoFormContainer/Loadable';
@@ -20,14 +24,16 @@ import appStyles from './styles';
 
 import NavBar from '../../components/NavBar';
 
+import { makeSelectTodosCount } from '../TodosListContainer/selectors';
+
 const StyledWrapper = styled.div`
   ${appStyles};
 `;
 
-export default function App() {
+export function App({ todoCount }) {
   return (
     <StyledWrapper>
-      <NavBar/>
+      <NavBar todoCount={todoCount} />
       <Switch>
         <Route exact path="/todos" component={TodosListContainer} />
         <Route exact path="/todos/add" component={TodoFormContainer} />
@@ -40,3 +46,17 @@ export default function App() {
     </StyledWrapper>
   );
 }
+
+const mapStateToProps = createStructuredSelector({
+  todoCount: makeSelectTodosCount(),
+});
+
+App.propTypes = {
+  todoCount: PropTypes.number.isRequired,
+};
+
+const withConnect = connect(
+  mapStateToProps,
+);
+
+export default compose(withConnect)(App);

@@ -9,6 +9,7 @@ const navLinkStyles = css`
   padding: 0.25em 1em;
   border: 2px dashed #e5461e;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export default navLinkStyles;

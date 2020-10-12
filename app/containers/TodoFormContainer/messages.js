@@ -11,6 +11,6 @@ export const scope = 'app.containers.TodoFormContainer';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'add',
+    defaultMessage: 'add todo',
   },
 });

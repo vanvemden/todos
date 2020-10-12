@@ -18,6 +18,12 @@ const makeSelectTodos = () =>
     substate => substate.todos,
   );
 
+const makeSelectTodosCount = () =>
+  createSelector(
+    selectTodosListContainerDomain,
+    substate => substate.todos.filter(todo => !todo.checked).length,
+  );
+
 /**
  * Default selector
  */
@@ -29,4 +35,8 @@ const makeSelectTodosListContainer = () =>
   );
 
 export default makeSelectTodosListContainer;
-export { makeSelectTodos, selectTodosListContainerDomain };
+export {
+  makeSelectTodos,
+  makeSelectTodosCount,
+  selectTodosListContainerDomain,
+};
