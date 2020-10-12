@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { TODO_TEXT_CHANGE } from './constants';
+import { TODO_TEXT_CHANGE, SUBMIT_TODO_SUCCEEDED } from './constants';
 
 export const initialState = {
   text: '',
@@ -16,6 +16,9 @@ const todoFormContainerReducer = (state = initialState, action) =>
     switch (action.type) {
       case TODO_TEXT_CHANGE:
         draft.text = action.text;
+        break;
+      case SUBMIT_TODO_SUCCEEDED:
+        draft.text = '';
         break;
     }
   });
