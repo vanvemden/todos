@@ -6,7 +6,7 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import history from '../../utils/history';
 import messages from './messages';
 import TextInput from '../TextInput';
 import Button from '../Button';
@@ -43,7 +43,7 @@ function TodoForm({
           id="text"
         />
         <Button bgColor="green" message={messages.buttonSubmit} onClick={handleFormSubmit} />
-        <Button bgColor="red" message={messages.buttonCancel} onClick={onTodoFormCancel} />
+        <Button bgColor="red" message={messages.buttonCancel} onClick={() => {history.push('/todos')}} />
       </Form>
     </div>
   );
