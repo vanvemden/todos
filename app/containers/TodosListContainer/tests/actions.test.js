@@ -3,12 +3,16 @@ import {
   requestTodosSucceeded,
   requestTodosFailed,
   toggleTodo,
+  toggleTodoSucceeded,
+  toggleTodoFailed,
 } from '../actions';
 import {
   REQUEST_TODOS,
   REQUEST_TODOS_SUCCEEDED,
   REQUEST_TODOS_FAILED,
   TOGGLE_TODO,
+  TOGGLE_TODO_SUCCEEDED,
+  TOGGLE_TODO_FAILED,
 } from '../constants';
 
 describe('TodosListContainer actions', () => {
@@ -51,6 +55,28 @@ describe('TodosListContainer actions', () => {
         id: payload,
       };
       expect(toggleTodo(payload)).toEqual(expected);
+    });
+  });
+
+  describe('toggleTodoSucceeded', () => {
+    it('has a type of TOGGLE_TODO_SUCCEEDED', () => {
+      const payload = {};
+      const expected = {
+        type: TOGGLE_TODO_SUCCEEDED,
+        todo: payload,
+      };
+      expect(toggleTodoSucceeded(payload)).toEqual(expected);
+    });
+  });
+
+  describe('toggleTodoFailed', () => {
+    it('has a type of TOGGLE_TODO_FAILED', () => {
+      const payload = 'Error message';
+      const expected = {
+        type: TOGGLE_TODO_FAILED,
+        message: payload,
+      };
+      expect(toggleTodoFailed(payload)).toEqual(expected);
     });
   });
 });
