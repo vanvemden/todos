@@ -61,7 +61,7 @@ const mapStateToProps = createStructuredSelector({
   todos: makeSelectTodos(),
 });
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     onRequestTodos: () => dispatch(requestTodos()),
     onToggleTodo: id => dispatch(toggleTodo(id)),

@@ -9,7 +9,7 @@ import {
 } from './actions';
 
 /* Send api request to fetch todos */
-function* requestTodos() {
+export function* requestTodos() {
   try {
     const result = yield call(apiFetchTodos);
     yield put(requestTodosSucceeded(result.todos));
@@ -19,7 +19,7 @@ function* requestTodos() {
 }
 
 /* Send api request to toggle checked boolean */
-function* toggleTodoChecked(action) {
+export function* toggleTodoChecked(action) {
   try {
     const result = yield call(apiToggleChecked, action.id);
     yield put(toggleTodoSucceeded(result.todo));
