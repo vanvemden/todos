@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 export const checkboxContainerStyles = css`
   display: inline-block;
   vertical-align: middle;
-  margin-right: 4px;
+  margin-right: 1em;
 `;
 
 export const iconStyles = css`
