@@ -11,6 +11,6 @@ export const scope = 'app.containers.TodosListContainer';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'todo list',
+    defaultMessage: 'to-do list',
   },
 });
