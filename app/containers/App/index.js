@@ -55,8 +55,6 @@ App.propTypes = {
   todoCount: PropTypes.number.isRequired,
 };
 
-const withConnect = connect(
-  mapStateToProps,
-);
+const withConnect = connect(mapStateToProps);
 
 export default compose(withConnect)(App);

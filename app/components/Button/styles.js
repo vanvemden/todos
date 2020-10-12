@@ -1,8 +1,7 @@
 import { css } from 'styled-components';
 
 const buttonStyles = css`
-  background-color: #ffffff;
-  color: #000000;
+  color: #424147;
   display: inline-flex;
   line-height: 1em;
   font-size: 1.25em;
@@ -13,6 +12,11 @@ const buttonStyles = css`
   border-style: dashed;
   border-color: ${props => props.bgColor};
   cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff;
+  }
+
 `;
 
 export default buttonStyles;

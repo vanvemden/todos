@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 
 const navLinkStyles = css`
-  background-color: #ffffff;
   color: #929898;
   display: inline-flex;
   line-height: 2em;
@@ -16,6 +15,7 @@ const navLinkStyles = css`
   &:hover {
     color: #424147;
     border-color: #424147;
+    background-color: #ffffff;
   }
 `;
 
