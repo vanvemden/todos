@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import messages from './messages';
@@ -18,11 +18,17 @@ function TodoForm({
   onTodoFormSubmit,
   onTodoFormCancel,
 }) {
+  const [todoTextError, setTodoTextError] = useState('');
   const handleFormSubmit = evt => {
     evt.preventDefault();
-    onTodoFormSubmit({
-      text: todoText,
-    });
+    if (todoText.length === 0) {
+      setTodoTextError('Please enter a description.');
+    } else {
+      setTodoTextError('');
+      onTodoFormSubmit({
+        text: todoText,
+      });
+    }
   };
 
   return (
@@ -31,6 +37,7 @@ function TodoForm({
         <TextInput
           placeholder="Describe what needs to be done..."
           onChange={onTodoTextChange}
+          error={todoTextError}
           value={todoText}
           type="text"
           id="text"

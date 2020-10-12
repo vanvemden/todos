@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const inputStyles = css`
+export const inputStyles = css`
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -14,4 +14,13 @@ const inputStyles = css`
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 `;
 
-export default inputStyles;
+export const errorStyles = css`
+  display: block;
+  padding: 0.375rem 0.75rem 0;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: red;
+`;
+
+export default [inputStyles, errorStyles];
