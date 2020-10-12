@@ -12,6 +12,7 @@ export const liStyles = css`
 `;
 
 export const labelStyles = css`
+  font-size: 1.25em;
   text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
 `;
 
