@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const liStyles = css`
+const liStyles = css`
   min-height: 3em;
   display: flex;
   align-items: center;
@@ -11,9 +11,9 @@ export const liStyles = css`
   background-color: #b3d4fc;
 `;
 
-export const labelStyles = css`
+const labelStyles = css`
   font-size: 1.25em;
   text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
 `;
 
-export default [liStyles, labelStyles];
+export { liStyles, labelStyles };

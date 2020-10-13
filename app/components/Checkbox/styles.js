@@ -1,18 +1,18 @@
 import { css } from 'styled-components';
 
-export const checkboxContainerStyles = css`
+const checkboxContainerStyles = css`
   display: inline-block;
   vertical-align: middle;
   margin-right: 1em;
 `;
 
-export const iconStyles = css`
+const iconStyles = css`
   fill: none;
   stroke: white;
   stroke-width: 2px;
 `;
 
-export const hiddenCheckboxStyles = css`
+const hiddenCheckboxStyles = css`
   border: 0;
   clip: rect(0 0 0 0);
   clippath: inset(50%);
@@ -25,7 +25,7 @@ export const hiddenCheckboxStyles = css`
   width: 1px;
 `;
 
-export const styledCheckboxStyles = css`
+const styledCheckboxStyles = css`
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -35,9 +35,9 @@ export const styledCheckboxStyles = css`
   transition: all 150ms;
 `;
 
-export default [
+export {
   checkboxContainerStyles,
   iconStyles,
   hiddenCheckboxStyles,
   styledCheckboxStyles,
-];
+};

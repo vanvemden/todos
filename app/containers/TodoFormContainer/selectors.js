@@ -16,7 +16,7 @@ const makeSelectTodoText = () =>
   createSelector(
     selectTodoFormContainerDomain,
     substate => substate.text,
-  )
+  );
 
 /**
  * Default selector used by TodoFormContainer
