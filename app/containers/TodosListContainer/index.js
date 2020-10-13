@@ -14,15 +14,25 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import { makeSelectTodos } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import { requestTodos, toggleTodo } from './actions';
+import {
+  makeSelectTodos,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 
 import TodoList from '../../components/TodoList';
 
-export function TodosListContainer({ todos, onRequestTodos, onToggleTodo }) {
+export function TodosListContainer({
+  todos,
+  loading,
+  error,
+  onRequestTodos,
+  onToggleTodo,
+}) {
   useInjectReducer({ key: 'todosListContainer', reducer });
   useInjectSaga({ key: 'todosListContainer', saga });
 
@@ -33,6 +43,8 @@ export function TodosListContainer({ todos, onRequestTodos, onToggleTodo }) {
 
   const todoListProps = {
     todos,
+    loading,
+    error,
     onToggleTodo,
   };
 
@@ -53,12 +65,16 @@ export function TodosListContainer({ todos, onRequestTodos, onToggleTodo }) {
 // Typechecking the props passed to the component
 TodosListContainer.propTypes = {
   todos: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   onRequestTodos: PropTypes.func.isRequired,
   onToggleTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   todos: makeSelectTodos(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 export function mapDispatchToProps(dispatch) {

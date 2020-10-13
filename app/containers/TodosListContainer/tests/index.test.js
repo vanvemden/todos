@@ -32,6 +32,8 @@ describe('<TodosListContainer />', () => {
         <IntlProvider locale={DEFAULT_LOCALE}>
           <TodosListContainer
             todos={[]}
+            loading={false}
+            error={false}
             onRequestTodos={() => {}}
             onToggleTodo={() => {}}
           />
@@ -49,6 +51,8 @@ describe('<TodosListContainer />', () => {
         <IntlProvider locale={DEFAULT_LOCALE}>
           <TodosListContainer
             todos={[]}
+            loading={false}
+            error={false}
             onRequestTodos={() => {}}
             onToggleTodo={() => {}}
           />
@@ -65,6 +69,8 @@ describe('<TodosListContainer />', () => {
         <IntlProvider locale={DEFAULT_LOCALE}>
           <TodosListContainer
             todos={[]}
+            loading={false}
+            error={false}
             onRequestTodos={submitSpy}
             onToggleTodo={() => {}}
           />

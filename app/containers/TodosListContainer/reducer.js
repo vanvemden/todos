@@ -4,11 +4,18 @@
  *
  */
 import produce from 'immer';
-import { REQUEST_TODOS_SUCCEEDED, TOGGLE_TODO_SUCCEEDED } from './constants';
+import {
+  REQUEST_TODOS,
+  REQUEST_TODOS_SUCCEEDED,
+  REQUEST_TODOS_FAILED,
+  TOGGLE_TODO_SUCCEEDED,
+} from './constants';
 import { SUBMIT_TODO_SUCCEEDED } from '../TodoFormContainer/constants';
 
 export const initialState = {
   todos: [],
+  loading: false,
+  error: false,
 };
 
 /* Helper function to toggle checked boolean */
@@ -32,8 +39,17 @@ function addTodoToState(todos, todo) {
 const todosListContainerReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
+      case REQUEST_TODOS:
+        draft.loading = true;
+        draft.error = false;
+        break;
       case REQUEST_TODOS_SUCCEEDED:
         draft.todos = action.todos;
+        draft.loading = false;
+        break;
+      case REQUEST_TODOS_FAILED:
+        draft.loading = false;
+        draft.error = action.message;
         break;
       case TOGGLE_TODO_SUCCEEDED:
         draft.todos = toggleTodoCheckedState(draft.todos, action.todo);

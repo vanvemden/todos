@@ -18,6 +18,18 @@ const makeSelectTodos = () =>
     substate => substate.todos,
   );
 
+const makeSelectLoading = () =>
+  createSelector(
+    selectTodosListContainerDomain,
+    substate => substate.loading,
+  );
+
+const makeSelectError = () =>
+  createSelector(
+    selectTodosListContainerDomain,
+    substate => substate.error,
+  );
+
 const makeSelectTodosCount = () =>
   createSelector(
     selectTodosListContainerDomain,
@@ -37,6 +49,8 @@ const makeSelectTodosListContainer = () =>
 export default makeSelectTodosListContainer;
 export {
   makeSelectTodos,
+  makeSelectLoading,
+  makeSelectError,
   makeSelectTodosCount,
   selectTodosListContainerDomain,
 };

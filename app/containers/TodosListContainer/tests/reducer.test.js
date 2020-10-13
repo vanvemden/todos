@@ -20,6 +20,8 @@ describe('todosListContainerReducer', () => {
     /* Reset to initial state */
     state = {
       todos: [],
+      loading: false,
+      error: false,
     };
   });
 
@@ -33,6 +35,8 @@ describe('todosListContainerReducer', () => {
     const fixture = [];
     const expectedResult = produce(state, draft => {
       draft.todos = fixture;
+      draft.loading = true;
+      draft.error = false;
     });
 
     expect(todosListContainerReducer(state, requestTodos())).toEqual(
@@ -45,6 +49,8 @@ describe('todosListContainerReducer', () => {
     const fixture = [{ id: '12345', text: 'Testing', checked: false }];
     const expectedResult = produce(state, draft => {
       draft.todos = fixture;
+      draft.loading = false;
+      draft.error = false;
     });
 
     expect(
@@ -57,6 +63,8 @@ describe('todosListContainerReducer', () => {
     const fixture = 'Error message';
     const expectedResult = produce(state, draft => {
       draft.todos = [];
+      draft.loading = false;
+      draft.error = fixture;
     });
 
     expect(
@@ -74,6 +82,8 @@ describe('todosListContainerReducer', () => {
     );
     const expectedResult = produce(state, draft => {
       draft.todos = [fixture];
+      draft.loading = false;
+      draft.error = false;
     });
 
     expect(todosListContainerReducer(tempState, toggleTodo('12345'))).toEqual(
@@ -93,6 +103,8 @@ describe('todosListContainerReducer', () => {
     /* Expected result has checked boolean set to true */
     const expectedResult = produce(state, draft => {
       draft.todos = [{ ...fixture, checked: true }];
+      draft.loading = false;
+      draft.error = false;
     });
 
     /* Temp.state is updated with todo object returned by api */

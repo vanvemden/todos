@@ -5,6 +5,8 @@
 import makeSelectTodosListContainer, {
   selectTodosListContainerDomain,
   makeSelectTodos,
+  makeSelectLoading,
+  makeSelectError,
   makeSelectTodosCount,
 } from '../selectors';
 
@@ -43,6 +45,32 @@ describe('makeSelectTodos', () => {
       },
     };
     expect(todosSelector(mockedState)).toEqual(todos);
+  });
+});
+
+describe('makeSelectLoading', () => {
+  const loadingSelector = makeSelectLoading();
+  it('should select the todos', () => {
+    const loading = false;
+    const mockedState = {
+      todosListContainer: {
+        loading,
+      },
+    };
+    expect(loadingSelector(mockedState)).toEqual(loading);
+  });
+});
+
+describe('makeSelectError', () => {
+  const errorSelector = makeSelectError();
+  it('should select the todos', () => {
+    const error = true;
+    const mockedState = {
+      todosListContainer: {
+        error,
+      },
+    };
+    expect(errorSelector(mockedState)).toEqual(error);
   });
 });
 
