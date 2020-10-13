@@ -33,3 +33,14 @@ _Please note: Even though this app meets the requirements of the take-home assig
 Unit tests have been written for the `TodosListContainer` component. To run these tests:
 
 1. `jest app/containers/TodosListContainer/tests/`
+
+## Further Development
+
+The following could be added to the app in future:
+
+* Display _Add to-do_ page as an overlay on _To-do list_ page.
+* Allow user to edit to-do text, and delete to-do items.
+* Add selector to switch between site languages.
+* Store to-do items in database.
+* Remove completed items from _To-do_ page, and display on _Done_ page.
+* Drag and drop items in custom order.
