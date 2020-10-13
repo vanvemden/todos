@@ -6,43 +6,104 @@
  *
  */
 
+// import 'jest-dom/extend-expect'; // add some helpful assertions
 import React from 'react';
 import { render } from 'react-testing-library';
 import { IntlProvider } from 'react-intl';
-// import 'jest-dom/extend-expect'; // add some helpful assertions
+import { Provider } from 'react-redux';
+import { browserHistory } from 'react-router-dom';
+import configureStore from '../../../configureStore';
 
-import { TodosListContainer } from '../index';
+import { TodosListContainer, mapDispatchToProps } from '../index';
+import { requestTodos, toggleTodo } from '../actions';
 import { DEFAULT_LOCALE } from '../../../i18n';
 
 describe('<TodosListContainer />', () => {
+  let store;
+
+  beforeAll(() => {
+    store = configureStore({}, browserHistory);
+  });
+
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    const dispatch = jest.fn();
     render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
-        <TodosListContainer dispatch={dispatch} />
-      </IntlProvider>,
+      <Provider store={store}>
+        <IntlProvider locale={DEFAULT_LOCALE}>
+          <TodosListContainer
+            todos={[]}
+            onRequestTodos={() => {}}
+            onToggleTodo={() => {}}
+          />
+        </IntlProvider>
+      </Provider>,
     );
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('Expect to have additional unit tests specified', () => {
-    expect(true).toEqual(false);
-  });
-
-  /**
-   * Unskip this test to use it
-   *
-   * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
-   */
-  it.skip('Should render and match the snapshot', () => {
+  it('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
     } = render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
-        <TodosListContainer />
-      </IntlProvider>,
+      <Provider store={store}>
+        <IntlProvider locale={DEFAULT_LOCALE}>
+          <TodosListContainer
+            todos={[]}
+            onRequestTodos={() => {}}
+            onToggleTodo={() => {}}
+          />
+        </IntlProvider>
+      </Provider>,
     );
     expect(firstChild).toMatchSnapshot();
+  });
+
+  it('Should fetch the todos on mount', () => {
+    const submitSpy = jest.fn();
+    render(
+      <Provider store={store}>
+        <IntlProvider locale={DEFAULT_LOCALE}>
+          <TodosListContainer
+            todos={[]}
+            onRequestTodos={submitSpy}
+            onToggleTodo={() => {}}
+          />
+        </IntlProvider>
+      </Provider>,
+    );
+    expect(submitSpy).toHaveBeenCalled();
+  });
+
+  describe('mapDispatchToProps', () => {
+    describe('onRequestTodos', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        expect(result.onRequestTodos).toBeDefined();
+      });
+
+      it('should dispatch requestTodos when called', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        result.onRequestTodos();
+        expect(dispatch).toHaveBeenCalledWith(requestTodos());
+      });
+    });
+
+    describe('onToggleTodo', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        expect(result.onToggleTodo).toBeDefined();
+      });
+
+      it('should dispatch toggleTodo when called', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        const id = '12345';
+        result.onToggleTodo(id);
+        expect(dispatch).toHaveBeenCalledWith(toggleTodo(id));
+      });
+    });
   });
 });
