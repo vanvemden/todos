@@ -41,6 +41,8 @@ The following could be added to the app in future:
 * Display _Add to-do_ page as an overlay on _To-do list_ page.
 * Allow user to edit to-do text, and delete to-do items.
 * Add selector to switch between site languages.
-* Store to-do items in database.
+* Setup database to store to-do items in.
 * Remove completed items from _To-do_ page, and display on _Done_ page.
-* Drag and drop items in custom order.
+* Add drag and drop functionality to list items in custom order.
+* Add server side validation to prevent bad submissions.
+* Add user authentication and email verification.
