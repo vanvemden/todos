@@ -39,7 +39,7 @@ export function TodoFormContainer({
   return (
     <div>
       <Helmet>
-        <title>Add Todo</title>
+        <title>Add To-do</title>
         <meta name="description" content="Add a todo item to list." />
       </Helmet>
       <h1>
