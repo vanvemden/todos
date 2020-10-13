@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TodosListContainer /> Should render and match the snapshot 1`] = `
+<div>
+  <h1>
+    <span>
+      to-do list
+    </span>
+  </h1>
+  <div
+    class="TodoList__StyledWrapper-sc-11d6ln9-0 dWPHBJ"
+  >
+    <ul
+      class="TodoList__StyledUl-sc-11d6ln9-1 kTWTrU"
+    />
+  </div>
+</div>
+`;
