@@ -66,7 +66,7 @@ export function TodosListContainer({
 TodosListContainer.propTypes = {
   todos: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
   onRequestTodos: PropTypes.func.isRequired,
   onToggleTodo: PropTypes.func.isRequired,
 };

@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import LoadingIndicator from 'components/LoadingIndicator';
 import Todo from '../Todo';
+import Alert from '../Alert';
+
 import { wrapperStyles, ulStyles } from './styles';
 
 const StyledWrapper = styled.div`
@@ -29,13 +31,12 @@ function TodoList({ todos, loading, error, onToggleTodo }) {
     );
   }
 
-  /* Render message on error */
+  /* Render alert message on error */
   if (error) {
+    const errorText = `Error: ${error}. Please try again later.`;
     return (
       <StyledWrapper>
-        <StyledUl>
-          <li>{error}</li>
-        </StyledUl>
+        <Alert text={errorText} bgColor="red" />
       </StyledWrapper>
     );
   }
@@ -54,7 +55,7 @@ function TodoList({ todos, loading, error, onToggleTodo }) {
 TodoList.propTypes = {
   todos: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
   onToggleTodo: PropTypes.func.isRequired,
 };
 
