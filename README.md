@@ -1,6 +1,6 @@
 # Todos App
 
-App created using [React Boilerplate](https://www.reactboilerplate.com/) to keep a to-do list to better organize tasks, and have a clear outline of completed and uncompleted tasks. It leverages [React](https://reactjs.org/), [React Router](https://www.npmjs.com/package/react-router), [Redux](https://redux.js.org/), [Redux Saga](https://redux-saga.js.org/), [Reselect](https://github.com/reduxjs/reselect), [Styled Components](https://styled-components.com/), [Node](https://nodejs.org/en/docs/), [Express](https://expressjs.com/).
+An app to keep a to-do list; a list of tasks one needs to complete. It is built with [React Boilerplate](https://www.reactboilerplate.com/) and leverages [React](https://reactjs.org/), [React Router](https://www.npmjs.com/package/react-router), [Redux](https://redux.js.org/), [Redux Saga](https://redux-saga.js.org/), [Reselect](https://github.com/reduxjs/reselect), [Styled Components](https://styled-components.com/), [Node](https://nodejs.org/en/docs/), [Express](https://expressjs.com/).
 
 On the `client` side:
 
