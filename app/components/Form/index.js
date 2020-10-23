@@ -7,10 +7,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import formStyles from './styles';
 
 const StyledForm = styled.form`
-  ${formStyles};
+  padding: 10px;
+  padding: 25px;
+  border: 1px dashed #b4b4b2;
+  background-color: #b3d4fc;
+  border-radius: 0.25rem;
 `;
 
 function Form({ onSubmit, children }) {
