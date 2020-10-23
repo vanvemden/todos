@@ -8,14 +8,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Checkbox from '../Checkbox';
-import { liStyles, labelStyles } from './styles';
 
 const StyledLi = styled.li`
-  ${liStyles};
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 0.25rem;
+  border: 1px dashed #b4b4b2;
+  background-color: #b3d4fc;
 `;
 
 const StyledLabel = styled.div`
-  ${labelStyles};
+  font-size: 1.25em;
+  text-decoration: ${props => (props.checked ? 'line-through' : 'none')};
 `;
 function Todo({ todo, onToggle }) {
   return (
