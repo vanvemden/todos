@@ -29,12 +29,17 @@ function TodoForm({ todoText, onTodoTextChange, onTodoFormSubmit }) {
     }
   };
 
+  const handleTextChange = evt => {
+    const text = evt.target.value;
+    onTodoTextChange(text);
+  };
+
   return (
     <div>
       <Form onSubmit={handleFormSubmit}>
         <TextInput
           placeholder="Describe what needs to be done..."
-          onChange={onTodoTextChange}
+          onChange={handleTextChange}
           error={todoTextError}
           value={todoText}
           type="text"
@@ -48,7 +53,9 @@ function TodoForm({ todoText, onTodoTextChange, onTodoFormSubmit }) {
         <Button
           bgColor="red"
           message={messages.buttonCancel}
-          onClick={() => {history.push('/todos')}}
+          onClick={() => {
+            history.push('/todos');
+          }}
         />
       </Form>
     </div>

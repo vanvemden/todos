@@ -62,7 +62,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    onTodoTextChange: evt => dispatch(changeTextInput(evt.target.value)),
+    onTodoTextChange: text => dispatch(changeTextInput(text)),
     onTodoFormSubmit: todo => dispatch(submitTodo(todo)),
   };
 }
