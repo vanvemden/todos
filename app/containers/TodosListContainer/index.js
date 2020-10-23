@@ -39,7 +39,7 @@ export function TodosListContainer({
   useEffect(() => {
     // On mount, execute request todos action
     onRequestTodos();
-  }, []);
+  }, [onRequestTodos]);
 
   const todoListProps = {
     todos,
