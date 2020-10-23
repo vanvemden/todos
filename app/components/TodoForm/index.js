@@ -19,7 +19,7 @@ function TodoForm({ todoText, onTodoTextChange, onTodoFormSubmit }) {
     evt.preventDefault();
 
     /* Validate todo text input */
-    if (todoText.length === 0) {
+    if (todoText.trim().length === 0) {
       setTodoTextError('Please enter a description.');
     } else {
       setTodoTextError('');
