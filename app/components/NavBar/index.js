@@ -10,10 +10,9 @@ import PropTypes from 'prop-types';
 import messages from './messages';
 
 import NavLink from '../NavLink';
-import navBarStyles from './styles';
 
 const StyledNavBar = styled.div`
-  ${navBarStyles};
+  text-align: center;
 `;
 
 function NavBar({ todoCount }) {
